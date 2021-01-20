@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { BookServiceService } from 'src/app/Services/book-service.service';
 
 @Component({
@@ -7,24 +8,22 @@ import { BookServiceService } from 'src/app/Services/book-service.service';
   styleUrls: ['./book-add.component.scss']
 })
 export class BookAddComponent implements OnInit {
-  @ViewChild("BookName") BookName:any;
-  @ViewChild("AutherName") AutherName:any;
-  @ViewChild("PublicationDate") PublicationDate:any;
-  @ViewChild("CoverPhoto") CoverPhoto:any;
-  @ViewChild("CatalogNumber") CatalogNumber:any;
-  constructor(private BooksService:BookServiceService) { }
+  BookFormGroup:FormGroup = this.fb.group({});
+
+  constructor(private BooksService:BookServiceService,private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    this.BookFormGroup = this.fb.group({
+      BookName:new FormControl("",Validators.required),
+      AutherName:new FormControl("",Validators.required),
+      PublicationDate:new FormControl("",Validators.required),
+      CoverPhoto:new FormControl("",Validators.required),
+      CatalogNumber:new FormControl("",Validators.required),
+    })
   }
-  submit(){
-    let editBookDetails = {
-      BookName:this.BookName.nativeElement.value,
-      AutherName:this.AutherName.nativeElement.value,
-      PublicationDate:this.PublicationDate.nativeElement.value,
-      CoverPhoto:this.CoverPhoto.nativeElement.value,
-      CatalogNumber:this.CatalogNumber.nativeElement.value,
-    }
-    console.log(editBookDetails);
-    this.BooksService.addBook(editBookDetails);
+  addNewBook(){
+
+    this.BooksService.addBook(this.BookFormGroup.value);
+    this.BookFormGroup.reset();
   }
 }

@@ -1,40 +1,37 @@
 <div class="p-grid">
     <div class="p-col-4">
         <div class="book-image-container">
-
             <img [src]="BookDetails.CoverPhoto" alt="{{BookDetails.BookName}}">
         </div>
     </div>
     <div class="p-col-4">
-        <!-- <input type="text" [formControl]="name"> -->
-
-        <form>
+        <h1>Edit the book</h1>
+        <form [formGroup]="BookFormGroup" (ngSubmit)="editBook()">
+            <!-- <input type="text" [(ngModel)]="bookName"> -->
             <div>
-
-                <input type="text" value="{{BookDetails.BookName}}" pInputText #BookName>
+                <label>Book name:</label>
+                <input type="text" formControlName="BookName" pInputText>
             </div>
             <div>
-
-                <input type="text" value="{{BookDetails.AutherName}}" pInputText #AutherName>
+                <label>Auther name:</label>
+                <input type="text" formControlName="AutherName" pInputText>
             </div>
             <div>
-
-                <input type="text" value="{{BookDetails.PublicationDate}}" pInputText #PublicationDate>
+                <label>Publication date:</label>
+                <input type="text" formControlName="PublicationDate" pInputText>
             </div>
             <div>
-
-                <input type="text" value="{{BookDetails.CoverPhoto}}" pInputText #CoverPhoto>
+                <label>Cover photo:</label>
+                <input type="text" formControlName="CoverPhoto" pInputText>
             </div>
             <div>
+                <label>Catalog number:</label>
+                <input type="text" formControlName="CatalogNumber" pInputText>
+            </div>
+            <div>
+                <p-button type="submit" label="Update Book" [disabled]="!BookFormGroup.valid"></p-button>
 
-                <input type="text" value="{{BookDetails.CatalogNumber}}" pInputText #CatalogNumber>
             </div>
         </form>
-        <button (click)="submit()">save book</button>
-        <!-- <form>
-        <input type="text" [(ngModel)]="bookName">
-
-         <input type="text" formControlName="BookName" class="form-control">
-     </form> -->
     </div>
 </div>

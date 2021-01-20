@@ -11,6 +11,9 @@ import { BookListComponent } from './pages/books/book-list/book-list.component';
 import { BookListItemComponent } from './pages/books/book-list/book-list-item/book-list-item.component';
 import { HeaderComponent } from './header/header.component';
 import { BookAddComponent } from './pages/books/book-add/book-add.component';
+import { BookDetailsComponent } from './pages/books/book-details/book-details.component';
+import { BookFilterComponent } from './pages/books/book-list/book-filter/book-filter.component';
+import {InputTextModule} from 'primeng/inputtext';
 
 @NgModule({
   declarations: [
@@ -20,13 +23,16 @@ import { BookAddComponent } from './pages/books/book-add/book-add.component';
     BookListItemComponent,
     HeaderComponent,
     BookAddComponent,
+    BookDetailsComponent,
+    BookFilterComponent
   ],
   imports: [
     ReactiveFormsModule,
     FormsModule,
     BrowserModule,
     AppRoutingModule,
-    ButtonModule
+    ButtonModule,
+    InputTextModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,16 +1,21 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import {bookList} from '../Content/BookList.json';
+import { bookInfo } from '../Models/BookModel';
 @Injectable({
   providedIn: 'root'
 })
 export class BookServiceService {
-  localBookList:any[]=[];
+  bSubject = new BehaviorSubject([]); 
+  localBookList:bookInfo[]=[];
+  filteredBookList :bookInfo[]=[];
   constructor() {
     this.localBookList = JSON.parse(JSON.stringify(bookList))
+    this.filteredBookList = JSON.parse(JSON.stringify(bookList))
    }
 
   getBookList(){
-     return this.localBookList;
+     return this.filteredBookList;
   }
   getBookById(bookId:number){
     return this.localBookList.find(f=>f.Id==bookId);
@@ -22,13 +27,31 @@ export class BookServiceService {
     book.PublicationDate = editBook.PublicationDate;
     book.CoverPhoto = editBook.CoverPhoto;
     book.CatalogNumber = editBook.CatalogNumber;
+    this.initialFilterBook();
+    this.bSubject.next(this.filteredBookList);
+
   }
-  addBook(newBook:any){
+  addBook(newBook:bookInfo){
     newBook["Id"] = this.localBookList.length+1;
     this.localBookList.push(newBook);
+    this.initialFilterBook();
+    this.bSubject.next(this.filteredBookList);
+
+
   }
   removeBook(id:number){
-    let removedBook = this.localBookList.find(f=>f.Id=id);
-    this.localBookList.splice(this.localBookList.indexOf(removedBook),1)
+    let removedBook = this.localBookList.find(f=>f.Id==id);
+    this.localBookList.splice(this.localBookList.indexOf(removedBook),1);
+    this.initialFilterBook();
+    this.bSubject.next(this.filteredBookList);
+
+  }
+  filterList(filter:string){
+    this.filteredBookList = this.localBookList.filter(f=>f.BookName.toLowerCase().includes(filter.toLowerCase()))
+    this.bSubject.next(this.filteredBookList);
+  }
+  initialFilterBook(){
+    this.filteredBookList = this.localBookList;
+
   }
 }

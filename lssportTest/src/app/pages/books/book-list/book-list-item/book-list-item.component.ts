@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { bookInfo } from 'src/app/Models/BookModel';
 import { BookServiceService } from 'src/app/Services/book-service.service';
 
 @Component({
@@ -7,12 +8,12 @@ import { BookServiceService } from 'src/app/Services/book-service.service';
   styleUrls: ['./book-list-item.component.scss']
 })
 export class BookListItemComponent implements OnInit {
-  @Input("Book") Book:any;
+  @Input("Book") Book:bookInfo;
   constructor(private BooksService:BookServiceService) { }
 
   ngOnInit(): void {
   }
-  removeBook(book:any){
-    this.BooksService.removeBook(book.Id);
+  removeBook(event){
+    this.BooksService.removeBook(this.Book.Id);
   }
 }

@@ -2,37 +2,32 @@
     <div class="p-col-4">
         <!-- <input type="text" [formControl]="name"> -->
         <h1>Add new book</h1>
-        <form>
+        <form [formGroup]="BookFormGroup" (ngSubmit)="addNewBook()">
+            <!-- <input type="text" [(ngModel)]="bookName"> -->
             <div>
-<label for="">Book name</label>
-                <input type="text" #BookName>
+                <label>Book name:</label>
+                <input type="text" formControlName="BookName" class="form-control">
             </div>
             <div>
-                <label for="">Auther Name</label>
-
-                <input type="text" #AutherName>
+                <label>Auther name:</label>
+                <input type="text" formControlName="AutherName" class="form-control">
             </div>
             <div>
-                <label for="">Publication Date</label>
-
-                <input type="text" #PublicationDate>
+                <label>Publication date:</label>
+                <input type="text" formControlName="PublicationDate" class="form-control">
             </div>
             <div>
-                <label for="">Cover Photo url</label>
-
-                <input type="text" #CoverPhoto>
+                <label>Cover photo:</label>
+                <input type="text" formControlName="CoverPhoto" class="form-control">
             </div>
             <div>
-                <label for="">Catalog Number</label>
+                <label>Catalog number:</label>
+                <input type="text" formControlName="CatalogNumber" class="form-control">
+            </div>
+            <div>
+                <p-button type="submit" label="Add new book" [disabled]="!BookFormGroup.valid"></p-button>
 
-                <input type="text" #CatalogNumber>
             </div>
         </form>
-        <button (click)="submit()">add book</button>
-        <!-- <form>
-        <input type="text" [(ngModel)]="bookName">
-
-         <input type="text" formControlName="BookName" class="form-control">
-     </form> -->
     </div>
 </div>

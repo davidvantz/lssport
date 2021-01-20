@@ -1,4 +1,8 @@
 <div class="book-list-container">
+    <div>
+        <h2>filter:</h2>
+        <app-book-filter></app-book-filter>
+    </div>
     <app-book-list-item *ngFor="let book of bookList" [Book]="book" >
 
     </app-book-list-item>

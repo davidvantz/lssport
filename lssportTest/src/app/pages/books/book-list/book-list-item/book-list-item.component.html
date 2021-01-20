@@ -3,5 +3,7 @@
 </div> -->
 <div class="bookButton">
     <p-button label="{{Book.BookName + ' (' +Book.AutherName + ')' }}" [routerLink]="[Book.Id]"></p-button>
-    <p-button label="X" (onClick)="removeBook(Book)"></p-button>
+    <!-- <p-button icon="pi pi-trash" (onClick)="removeBook(Book)" class="p-button-secondary remove-button"></p-button> -->
+    <button pButton (click)="removeBook($event)" icon="pi pi-trash" class="p-button-secondary remove-button"></button>
+
 </div>
