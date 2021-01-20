@@ -1,0 +1,7 @@
+<!-- <div class="book-list-item-container">
+    {{Book.BookName}}
+</div> -->
+<div class="bookButton">
+    <p-button label="{{Book.BookName + ' (' +Book.AutherName + ')' }}" [routerLink]="[Book.Id]"></p-button>
+    <p-button label="X" (onClick)="removeBook(Book)"></p-button>
+</div>

@@ -1,0 +1,38 @@
+<div class="p-grid">
+    <div class="p-col-4">
+        <!-- <input type="text" [formControl]="name"> -->
+        <h1>Add new book</h1>
+        <form>
+            <div>
+<label for="">Book name</label>
+                <input type="text" #BookName>
+            </div>
+            <div>
+                <label for="">Auther Name</label>
+
+                <input type="text" #AutherName>
+            </div>
+            <div>
+                <label for="">Publication Date</label>
+
+                <input type="text" #PublicationDate>
+            </div>
+            <div>
+                <label for="">Cover Photo url</label>
+
+                <input type="text" #CoverPhoto>
+            </div>
+            <div>
+                <label for="">Catalog Number</label>
+
+                <input type="text" #CatalogNumber>
+            </div>
+        </form>
+        <button (click)="submit()">add book</button>
+        <!-- <form>
+        <input type="text" [(ngModel)]="bookName">
+
+         <input type="text" formControlName="BookName" class="form-control">
+     </form> -->
+    </div>
+</div>

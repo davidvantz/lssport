@@ -1,0 +1,40 @@
+<div class="p-grid">
+    <div class="p-col-4">
+        <div class="book-image-container">
+
+            <img [src]="BookDetails.CoverPhoto" alt="{{BookDetails.BookName}}">
+        </div>
+    </div>
+    <div class="p-col-4">
+        <!-- <input type="text" [formControl]="name"> -->
+
+        <form>
+            <div>
+
+                <input type="text" value="{{BookDetails.BookName}}" pInputText #BookName>
+            </div>
+            <div>
+
+                <input type="text" value="{{BookDetails.AutherName}}" pInputText #AutherName>
+            </div>
+            <div>
+
+                <input type="text" value="{{BookDetails.PublicationDate}}" pInputText #PublicationDate>
+            </div>
+            <div>
+
+                <input type="text" value="{{BookDetails.CoverPhoto}}" pInputText #CoverPhoto>
+            </div>
+            <div>
+
+                <input type="text" value="{{BookDetails.CatalogNumber}}" pInputText #CatalogNumber>
+            </div>
+        </form>
+        <button (click)="submit()">save book</button>
+        <!-- <form>
+        <input type="text" [(ngModel)]="bookName">
+
+         <input type="text" formControlName="BookName" class="form-control">
+     </form> -->
+    </div>
+</div>

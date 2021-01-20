@@ -1,0 +1,52 @@
+{
+    "bookList": [
+        {
+            "Id":1,
+            "AutherName": "Jason Aaron",
+            "BookName": "Avengers",
+            "PublicationDate": "January 20, 2021",
+            "CoverPhoto": "https://i.annihil.us/u/prod/marvel/i/mg/c/70/5ff8cf33203de/clean.jpg",
+            "CatalogNumber": "41"
+        },
+        {
+            "Id":2,
+            "AutherName": "CULLEN BUNN",
+            "BookName": "Deadpool Kills the Marvel Universe",
+            "PublicationDate": "August 22, 2012",
+            "CoverPhoto": "https://i.annihil.us/u/prod/marvel/i/mg/9/c0/5730ef9bf37b4/clean.jpg",
+            "CatalogNumber": "4"
+        },
+        {
+            "Id":3,
+            "AutherName": "Nick Spencer",
+            "BookName": "The Amazing Spider-Man",
+            "PublicationDate": "July 11, 2018",
+            "CoverPhoto": "https://i.annihil.us/u/prod/marvel/i/mg/b/90/5b3feb60f1a30/clean.jpg",
+            "CatalogNumber": "1"
+        },
+        {
+            "Id":4,
+            "AutherName": "Al Ewing",
+            "BookName": "Immortal Hulk",
+            "PublicationDate": "June 06, 2018",
+            "CoverPhoto": "https://i.annihil.us/u/prod/marvel/i/mg/3/50/5b0f16d976240/clean.jpg",
+            "CatalogNumber": "1"
+        },
+        {
+            "Id":5,
+            "AutherName": "Donny Cates",
+            "BookName": "Venom",
+            "PublicationDate": "May 09, 2018",
+            "CoverPhoto": "https://i.annihil.us/u/prod/marvel/i/mg/8/a0/5aea3123880ca/clean.jpg",
+            "CatalogNumber": "1"
+        },
+        {
+            "Id":6,
+            "AutherName": "Brian Michael Bendis",
+            "BookName": "Age of Ultron",
+            "PublicationDate": "March 06, 2013",
+            "CoverPhoto": "https://i.annihil.us/u/prod/marvel/i/mg/c/d0/51ed8cf71fd82/clean.jpg",
+            "CatalogNumber": "1"
+        }
+    ]
+}
